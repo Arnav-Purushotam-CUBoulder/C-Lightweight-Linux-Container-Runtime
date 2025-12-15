@@ -1,0 +1,4 @@
+build/
+*.o
+*.ndjson
+.lima-config.yaml

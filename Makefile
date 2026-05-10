@@ -4,7 +4,7 @@
 # Targets:
 #   make          — build the linuc binary
 #   make clean    — remove build artifacts
-#   make test     — run integration tests  (requires root / sudo)
+#   make test     — run integration tests  (memory-limit test needs root)
 #   make bench    — run benchmarks         (requires root)
 #   make install  — install to /usr/local/bin
 # ==============================================================================
@@ -56,7 +56,7 @@ test: $(TARGET)
 # ── Bench ────────────────────────────────────────────────────────────────────
 bench: $(TARGET)
 	@echo "Running benchmarks (needs root for cgroup tests)..."
-	sudo $(TARGET) bench --iterations 20 | tee bench_results.ndjson
+	sudo $(TARGET) bench | tee bench_results.ndjson
 	@echo "Results saved to bench_results.ndjson"
 	@echo "Tip: pipe through 'jq .' for pretty printing"
 
